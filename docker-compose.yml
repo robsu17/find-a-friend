@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+    mysql:
+        image: 'bitnami/mysql:latest'
+        environment:
+            - ALLOW_EMPTY_PASSWORD=yes
+            - DATABASE_USERNAME=${DB_USERNAME}
+            - DATABASE_NAME=${DB_DATABASE}
+            - DATABASE_PASSWORD=${DB_PASSWORD}
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./docker/mysql:/bitnami/mysql/data

@@ -22,7 +22,7 @@ class Organization extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'adminId');
+        return $this->belongsTo(Admin::class, 'adminId');
     }
 }
 

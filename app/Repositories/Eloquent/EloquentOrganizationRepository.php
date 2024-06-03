@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Auth;
 class EloquentOrganizationRepository implements OrganizationRepository
 {
 
-    public function create(OrganizationDTO $organizationDTO)
+    public function create(OrganizationDTO $organizationDTO, string $adminId)
     {
         $data = [
             'name' => $organizationDTO->name,
             'address' => $organizationDTO->address,
             'cep' => $organizationDTO->cep,
             'whatsapp' => $organizationDTO->whatsapp,
-            'adminId' => Auth::id()
+            'adminId' => $adminId
         ];
 
         return Organization::create($data);

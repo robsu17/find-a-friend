@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Repositories\Eloquent\EloquentAdminRepository;
 use App\Repositories\Eloquent\EloquentOrganizationRepository;
+use App\Services\AuthenticateService;
 use App\Services\CreateOrganizationService;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +16,11 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(CreateOrganizationService::class, function () {
-            return new CreateOrganizationService(new EloquentOrganizationRepository());
+            return new CreateOrganizationService(new EloquentOrganizationRepository(), new EloquentAdminRepository());
+        });
+
+        $this->app->bind(AuthenticateService::class, function () {
+            return new AuthenticateService(new EloquentAdminRepository());
         });
     }
 
