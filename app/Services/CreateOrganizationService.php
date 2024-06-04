@@ -14,7 +14,6 @@ class CreateOrganizationService
     public function handle(AdminDto $adminDto, OrganizationDTO $organizationDTO): OrganizationDTO
     {
         $adminCreated = $this->adminRepository->create($adminDto);
-        $organization = $this->organizationRepository->create($organizationDTO, $adminCreated->id);
-        dd($organization);
+        return $this->organizationRepository->create($organizationDTO, $adminCreated->id);
     }
 }

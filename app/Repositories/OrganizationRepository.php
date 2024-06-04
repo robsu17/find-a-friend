@@ -7,4 +7,5 @@ use App\DTO\OrganizationDTO;
 interface OrganizationRepository
 {
     public function create(OrganizationDTO $organizationDTO, string $adminId);
+    public function getOrganizationByAdminId(mixed $adminId);
 }

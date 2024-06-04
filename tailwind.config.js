@@ -15,6 +15,7 @@ module.exports = {
             'white-light-secondary': '#D3E2E5',
 
             'blue-dark-primary': '#0D3B66',
+            'blue-light-primary': '#114A80',
 
             'red-primary': '#F15156',
             'red-primary-light': '#FC8686',
@@ -23,7 +24,9 @@ module.exports = {
             'yellow-primary': '#F4D35E',
             'orange-primary': '#F27006',
 
-            'green-primary': '#3CDC8C'
+            'green-primary': '#3CDC8C',
+
+            'gray-primary': '#8FA7B2'
         }
     },
   },

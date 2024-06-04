@@ -22,4 +22,9 @@ class EloquentOrganizationRepository implements OrganizationRepository
 
         return Organization::create($data);
     }
+
+    public function getOrganizationByAdminId(mixed $adminId)
+    {
+        return Organization::where('adminId', Auth::id())->first();
+    }
 }
