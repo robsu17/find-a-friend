@@ -14,30 +14,16 @@ class AuthenticateController extends Controller
         return view('pages.organization.login');
     }
 
-    /**
-     * @throws InvalidCredentialsError
-     */
     public function authenticate(AuthenticateRequest $request)
     {
         $credentials = $request->validated();
 
-        try {
-            if (!Auth::attempt($credentials)) {
-                throw new InvalidCredentialsError();
-            }
-
+        if (Auth::attempt($credentials)) {
             return to_route('organization.index');
-
-        } catch (\Exception $error) {
-            if ($error instanceof InvalidCredentialsError) {
-                return to_route('organization.login')->withErrors([
-                    'message' => $error->getMessage()
-                ]);
-            }
-
-            return to_route('organization.login')->withErrors([
-                'message' => 'Algum erro ocorreu ao tentar logar'
-            ]);
         }
+
+        return to_route('organization.login')->withErrors([
+            'message' => 'Credenciais inválidas'
+        ]);
     }
 }
