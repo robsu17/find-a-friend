@@ -1,7 +1,5 @@
 @php
 $options = config('selects.options');
-
-$files = [];
 @endphp
 
 <form action="{{ route('organization.index.create.pet') }}" method="POST" class="bg-white px-20 py-16 rounded-xl" enctype="multipart/form-data">
@@ -19,6 +17,13 @@ $files = [];
         @endforeach
 
         <x-forms.input-file />
+
+        <div class="mt-10">
+            <h1 class="font-nunito font-extrabold text-3xl text-blue-dark-primary pb-2 border-b border-white-light-secondary mb-6">Requisitos para adoção</h1>
+
+            <x-forms.input-append />
+
+        </div>
 
         <button type="submit" class="bg-yellow-primary p-5 rounded-xl text-blue-dark-primary text-lg font-extrabold font-nunito">
             Confirmar

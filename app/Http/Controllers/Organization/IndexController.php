@@ -28,11 +28,6 @@ class IndexController extends Controller
         return view('pages.organization.index', compact('organization'));
     }
 
-    public function storePet(Request $request)
-    {
-        dd($request->file());
-    }
-
     public function logout()
     {
         Auth::logout();

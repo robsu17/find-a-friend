@@ -3,6 +3,7 @@
 use App\Http\Controllers\Organization\AuthenticateController;
 use App\Http\Controllers\Organization\IndexController;
 use App\Http\Controllers\Organization\RegisterController;
+use App\Http\Controllers\Pet\CreateController;
 use App\Models\Organization;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +27,5 @@ Route::prefix('organization')->middleware('auth')->group(function () {
 
     Route::get('/logout', [IndexController::class, 'logout'])->name('organization.index.logout');
 
-    Route::post('/pet/create', [IndexController::class, 'storePet'])->name('organization.index.create.pet');
+    Route::post('/pet/store', CreateController::class)->name('organization.index.create.pet');
 });

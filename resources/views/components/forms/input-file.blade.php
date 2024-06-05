@@ -7,33 +7,47 @@
             type="file"
             multiple
             class=""
+            accept="image/*"
         />
     </label>
-    <div id="photos_list_preview" class="flex">
-    </div>
+    <ul id="files_list" class="space-y-2 mt-4">
+    </ul>
 </div>
 
-<script lang="ts">
+<script>
     const inputFile = document.querySelector('#photos')
 
-    const photosListPreview = document.getElementById('photos_list_preview')
+    const files_list = document.getElementById('files_list')
 
     inputFile.addEventListener('change', (event) => {
         const files = event.target.files;
+
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
+
             if (file.type.match('image.*')) {
                 const reader = new FileReader();
                 reader.onload = (function(theFile) {
                     return function(e) {
-                        const img = document.createElement('img');
-                        img.src = e.target.result;
-                        img.style.maxWidth = '200px';
-                        photosListPreview.appendChild(img);
+                        files_list.innerHTML += `
+                            <li class="flex items-center justify-between border border-gray-300 p-4 rounded-xl">
+                                <div class="flex items-center gap-2">
+                                    <img src="{{ asset('img/arquive.svg') }}" alt="arquive" />
+                                    <span class="text-blue-dark-primary">${file.name}</span>
+                                </div>
+                                <button onclick="remove(${file.name})" type="button">
+                                    <img src="{{ asset('img/square.svg') }}" alt="close" />
+                                </button>
+                            </li>
+                        `
                     };
                 })(file);
                 reader.readAsDataURL(file);
             }
         }
     })
+
+    function remove(e) {
+        console.log(e)
+    }
 </script>
