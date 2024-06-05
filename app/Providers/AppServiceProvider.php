@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Factories\PetDtoFactory;
 use App\Repositories\Eloquent\EloquentAdminRepository;
 use App\Repositories\Eloquent\EloquentOrganizationRepository;
 use App\Repositories\Eloquent\EloquentPetRepository;
@@ -32,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->bind(CreatePetService::class, function () {
-            return new CreatePetService(new EloquentPetRepository());
+            return new CreatePetService(new EloquentPetRepository(), new PetDtoFactory());
         });
     }
 

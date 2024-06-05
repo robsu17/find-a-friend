@@ -1,11 +1,8 @@
 <?php
 
 use App\Http\Controllers\Organization\AuthenticateController;
-use App\Http\Controllers\Organization\IndexController;
 use App\Http\Controllers\Organization\RegisterController;
-use App\Http\Controllers\Pet\CreateController;
-use App\Models\Organization;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Pet\CreatePetController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('organization')->middleware('guest')->group(function () {
@@ -23,9 +20,9 @@ Route::prefix('organization')->middleware('guest')->group(function () {
 });
 
 Route::prefix('organization')->middleware('auth')->group(function () {
-    Route::get('/', [IndexController::class, 'index'])->name('organization.index');
+    Route::get('/', [CreatePetController::class, 'index'])->name('organization.index');
 
-    Route::get('/logout', [IndexController::class, 'logout'])->name('organization.index.logout');
+    Route::get('/logout', [AuthenticateController::class, 'logout'])->name('organization.index.logout');
 
-    Route::post('/pet/store', CreateController::class)->name('organization.index.create.pet');
+    Route::post('/pet/create', [CreatePetController::class, 'create'])->name('organization.index.create.pet');
 });

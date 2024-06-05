@@ -26,4 +26,11 @@ class AuthenticateController extends Controller
             'message' => 'Credenciais inválidas'
         ]);
     }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('organization.login');
+    }
 }

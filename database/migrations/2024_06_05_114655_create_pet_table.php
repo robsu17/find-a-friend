@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('about');
-            $table->enum('age', ['puppy', 'young', 'adult']);
-            $table->enum('size', ['child', 'medium', 'large']);
-            $table->enum('energy', ['low', 'medium', 'high']);
-            $table->enum('dependency', ['low', 'medium', 'high']);
-            $table->enum('ambience', ['small', 'medium', 'large']);
+            $table->enum('age', ['filhote', 'jovem', 'adulto']);
+            $table->enum('size', ['pequeno', 'medio', 'grande']);
+            $table->enum('energy', ['baixo', 'medio', 'alto']);
+            $table->enum('dependency', ['baixo', 'medio', 'alto']);
+            $table->enum('ambience', ['pequeno', 'medio', 'amplo']);
             $table->json('photos')->nullable();
             $table->json('requirements');
             $table->unsignedBigInteger('org_id');

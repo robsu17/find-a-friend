@@ -10,6 +10,11 @@
                 @endforeach
             </ul>
         @endif
+        @if($message)
+            <ul class="my-4 rounded-xl space-y-2">
+                <li class="border border-green-700 bg-green-primary/80 p-2 rounded-xl font-semibold text-lg text-gray-800">{{ $message }}</li>
+            </ul>
+        @endif
         <x-organization.index.header :organization="$organization"/>
         <x-organization.index.form />
     </div>

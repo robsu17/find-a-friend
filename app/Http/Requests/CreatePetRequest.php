@@ -31,6 +31,7 @@ class CreatePetRequest extends FormRequest
             'dependency' => 'required|string',
             'ambience' => 'required|string',
             'requirement_values' => 'required|string',
+            'photos' => 'required',
         ];
     }
 }
