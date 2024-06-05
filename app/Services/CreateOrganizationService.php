@@ -11,7 +11,7 @@ class CreateOrganizationService
 {
     public function __construct(private readonly OrganizationRepository $organizationRepository, private readonly AdminRepository $adminRepository) {}
 
-    public function handle(AdminDto $adminDto, OrganizationDTO $organizationDTO): OrganizationDTO
+    public function handle(AdminDto $adminDto, OrganizationDTO $organizationDTO)
     {
         $adminCreated = $this->adminRepository->create($adminDto);
         return $this->organizationRepository->create($organizationDTO, $adminCreated->id);

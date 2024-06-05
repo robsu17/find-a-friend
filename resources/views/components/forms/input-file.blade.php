@@ -1,20 +1,39 @@
-<label>
-    <span class="block text-blue-dark-primary font-semibold text-base font-nunito">{{{ $label }}}</span>
-    <div class="bg-white-light-primary border border-white-light-secondary outline-none p-4 w-full mt-1.5 rounded-xl">
+<div>
+    <label>
+        <span class="block text-blue-dark-primary font-semibold text-base font-nunito">Fotos</span>
         <input
-            id="{{ $id }}"
-            name="{{ $name }}"
+            id="photos"
+            name="photos[]"
             type="file"
             multiple
-            class="hidden"
+            class=""
         />
-        <div class="flex flex-col justify-center items-center h-[150px]">
-            <img src="{{ asset('img/upload.svg') }}" alt="upload-svg">
-            <p class="text-blue-dark-primary text-lg font-semibold font-nunito mt-4">Arraste e solte o arquivo</p>
-        </div>
+    </label>
+    <div id="photos_list_preview" class="flex">
     </div>
-</label>
+</div>
 
-<script>
+<script lang="ts">
+    const inputFile = document.querySelector('#photos')
 
+    const photosListPreview = document.getElementById('photos_list_preview')
+
+    inputFile.addEventListener('change', (event) => {
+        const files = event.target.files;
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            if (file.type.match('image.*')) {
+                const reader = new FileReader();
+                reader.onload = (function(theFile) {
+                    return function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.style.maxWidth = '200px';
+                        photosListPreview.appendChild(img);
+                    };
+                })(file);
+                reader.readAsDataURL(file);
+            }
+        }
+    })
 </script>

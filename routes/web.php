@@ -25,4 +25,6 @@ Route::prefix('organization')->middleware('auth')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('organization.index');
 
     Route::get('/logout', [IndexController::class, 'logout'])->name('organization.index.logout');
+
+    Route::post('/pet/create', [IndexController::class, 'storePet'])->name('organization.index.create.pet');
 });

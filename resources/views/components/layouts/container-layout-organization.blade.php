@@ -13,6 +13,7 @@
     <title>{{ $title }}</title>
 
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 

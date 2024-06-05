@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Organization;
 use App\Services\errors\ResourceNotFound;
 use App\Services\GetOrganization;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
@@ -25,6 +26,11 @@ class IndexController extends Controller
         }
 
         return view('pages.organization.index', compact('organization'));
+    }
+
+    public function storePet(Request $request)
+    {
+        dd($request->file());
     }
 
     public function logout()
