@@ -27,10 +27,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body class="min-h-screen overflow-x-hidden" style="background-color: {{ $backgroundColor }}">
-
-<div class="my-20">
-    {{ $slot }}
-</div>
+<body class="min-h-screen overflow-x-hidden">
+{{ $slot }}
 </body>
 </html>

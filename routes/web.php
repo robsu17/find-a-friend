@@ -3,6 +3,7 @@
 use App\Http\Controllers\Organization\AuthenticateController;
 use App\Http\Controllers\Organization\RegisterController;
 use App\Http\Controllers\Pet\CreatePetController;
+use App\Http\Controllers\Pet\SearchPetsController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('organization')->middleware('guest')->group(function () {
@@ -26,3 +27,7 @@ Route::prefix('organization')->middleware('auth')->group(function () {
 
     Route::post('/pet/create', [CreatePetController::class, 'create'])->name('organization.index.create.pet');
 });
+
+Route::get('/', [SearchPetsController::class, 'index'])->name('pets.index');
+
+Route::get('/search', [SearchPetsController::class, 'search'])->name('pets.search');

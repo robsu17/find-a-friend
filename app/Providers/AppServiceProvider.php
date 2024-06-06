@@ -6,11 +6,14 @@ use App\Factories\PetDtoFactory;
 use App\Repositories\Eloquent\EloquentAdminRepository;
 use App\Repositories\Eloquent\EloquentOrganizationRepository;
 use App\Repositories\Eloquent\EloquentPetRepository;
+use App\Repositories\Ibge\IBGEApiRespository;
 use App\Repositories\OrganizationRepository;
 use App\Services\AuthenticateService;
 use App\Services\CreateOrganizationService;
 use App\Services\CreatePetService;
+use App\Services\GetCitiesServices;
 use App\Services\GetOrganization;
+use App\Services\GetStatesService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -34,6 +37,14 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(CreatePetService::class, function () {
             return new CreatePetService(new EloquentPetRepository(), new PetDtoFactory());
+        });
+
+        $this->app->bind(GetCitiesServices::class, function () {
+            return new GetCitiesServices(new IBGEApiRespository());
+        });
+
+        $this->app->bind(GetStatesService::class, function () {
+            return new GetStatesService(new IBGEApiRespository());
         });
     }
 

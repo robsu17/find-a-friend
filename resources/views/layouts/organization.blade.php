@@ -1,3 +1,3 @@
-<x-layouts.container-layout-organization :title="view()->yieldContent('title')" backgroundColor="#FC86864D">
+<x-layouts.organization :title="view()->yieldContent('title')">
     @yield('content')
-</x-layouts.container-layout-organization>
+</x-layouts.organization>
