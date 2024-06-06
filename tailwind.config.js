@@ -20,6 +20,7 @@ module.exports = {
             'red-primary': '#F15156',
             'red-primary-light': '#FC8686',
             'red-secondary': '#E44449',
+            'red-seconday-light': '#FDECED',
 
             'yellow-primary': '#F4D35E',
             'orange-primary': '#F27006',

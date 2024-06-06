@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Factories;
+namespace App\DTO\Factories;
 
 use App\DTO\PetDto;
 use App\Enum\PetAge;

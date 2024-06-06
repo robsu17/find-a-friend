@@ -16,6 +16,8 @@ class SearchPetsController extends Controller
 
     public function search(Request $request)
     {
-        dd($request->query());
+        $query = $request->query();
+
+        return view('pages.pet.result-search', compact('query'));
     }
 }

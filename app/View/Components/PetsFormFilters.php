@@ -2,13 +2,12 @@
 
 namespace App\View\Components;
 
-use App\Services\GetCitiesServices;
 use App\Services\GetStatesService;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class SearchPets extends Component
+class PetsFormFilters extends Component
 {
     /**
      * Create a new component instance.
@@ -23,7 +22,11 @@ class SearchPets extends Component
      */
     public function render(): View|Closure|string
     {
+        $options = config('selects.options');
         $states = $this->getStatesService->handle();
-        return view('components.search-pets', compact('states'));
+        return view(
+            'components.pets-form-filters',
+            compact('states', 'options'
+        ));
     }
 }

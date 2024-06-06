@@ -2,12 +2,11 @@
 
 namespace App\Providers;
 
-use App\Factories\PetDtoFactory;
+use App\DTO\Factories\PetDtoFactory;
 use App\Repositories\Eloquent\EloquentAdminRepository;
 use App\Repositories\Eloquent\EloquentOrganizationRepository;
 use App\Repositories\Eloquent\EloquentPetRepository;
 use App\Repositories\Ibge\IBGEApiRespository;
-use App\Repositories\OrganizationRepository;
 use App\Services\AuthenticateService;
 use App\Services\CreateOrganizationService;
 use App\Services\CreatePetService;

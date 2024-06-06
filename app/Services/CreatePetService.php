@@ -2,18 +2,10 @@
 
 namespace App\Services;
 
-use App\DTO\PetDto;
-use App\Enum\PetAge;
-use App\Enum\PetAmbience;
-use App\Enum\PetDependency;
-use App\Enum\PetEnergy;
-use App\Enum\PetSize;
-use App\Factories\PetDtoFactory;
+use App\DTO\Factories\PetDtoFactory;
 use App\Http\Requests\CreatePetRequest;
-use App\Models\Pet;
 use App\Repositories\PetsRepository;
 use App\Services\errors\PetAlreadyExistError;
-use Illuminate\Support\Facades\Storage;
 
 class CreatePetService
 {

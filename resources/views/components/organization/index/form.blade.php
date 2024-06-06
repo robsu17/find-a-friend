@@ -13,7 +13,11 @@ $options = config('selects.options');
         <x-forms.text-area id="about" name="about" label="Sobre" length="300" />
 
         @foreach($options as $option)
-            <x-forms.select :id="$option['id']" :name="$option['name']" :label="$option['label']" :options="$option['options']" />
+            <x-forms.select
+                :id="$option['id']"
+                :name="$option['name']"
+                :label="$option['label']"
+                :options="$option['options']" />
         @endforeach
 
         <x-forms.input-file />
